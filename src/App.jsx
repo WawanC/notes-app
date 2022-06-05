@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Navbar from "./components/Navbar";
 
 class App extends Component {
   constructor() {
@@ -9,7 +10,11 @@ class App extends Component {
   }
 
   render() {
-    return <h1>Notes App</h1>;
+    return (
+      <>
+        <Navbar />
+      </>
+    );
   }
 }
 
