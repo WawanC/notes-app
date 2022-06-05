@@ -1,0 +1,29 @@
+.noteItem {
+  display: flex;
+  flex-direction: column;
+  background-color: #ccc;
+  padding: 1rem;
+  gap: 1rem;
+  width: 100%;
+}
+
+.noteItem .main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.noteItem .main .createdAt {
+  font-style: italic;
+}
+
+.noteItem .main .actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.noteItem .main .actions button {
+  background-color: white;
+  font-size: 1rem;
+  padding: 0.5rem;
+}

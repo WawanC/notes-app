@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import Modal from "./components/Modal";
 import Navbar from "./components/Navbar";
 import NewNote from "./components/NewNote";
+import NoteList from "./components/NoteList";
 import "./styles/App.css";
 
 class App extends Component {
@@ -44,6 +45,7 @@ class App extends Component {
         <Navbar />
         <main>
           <button onClick={() => this.toggleModal(true)}>Add New Note</button>
+          <NoteList notes={this.state.notes} />
         </main>
         <Footer />
       </>
