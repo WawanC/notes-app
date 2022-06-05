@@ -2,6 +2,7 @@ import { Component } from "react";
 import Footer from "./components/Footer";
 import Modal from "./components/Modal";
 import Navbar from "./components/Navbar";
+import NewNote from "./components/NewNote";
 import "./styles/App.css";
 
 class App extends Component {
@@ -16,7 +17,7 @@ class App extends Component {
     return (
       <>
         <Modal>
-          <h1>New Note</h1>
+          <NewNote />
         </Modal>
         <Navbar />
         <main>
