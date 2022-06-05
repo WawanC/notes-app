@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Navbar from "./components/Navbar";
+import "./styles/App.css";
 
 class App extends Component {
   constructor() {
@@ -13,6 +14,9 @@ class App extends Component {
     return (
       <>
         <Navbar />
+        <main>
+          <button>Add New Note</button>
+        </main>
       </>
     );
   }
