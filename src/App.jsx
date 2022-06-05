@@ -10,18 +10,25 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
+      showModal: false,
     };
+  }
+
+  toggleModal(value) {
+    this.setState({ ...this.state, showModal: value });
   }
 
   render() {
     return (
       <>
-        <Modal>
-          <NewNote />
-        </Modal>
+        {this.state.showModal && (
+          <Modal onClose={() => this.toggleModal(false)}>
+            <NewNote />
+          </Modal>
+        )}
         <Navbar />
         <main>
-          <button>Add New Note</button>
+          <button onClick={() => this.toggleModal(true)}>Add New Note</button>
         </main>
         <Footer />
       </>
