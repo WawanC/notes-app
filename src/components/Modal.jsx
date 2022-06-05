@@ -1,9 +1,9 @@
 import "../styles/Modal.css";
+import NewNote from "./NewNote";
 
 const Modal = (props) => {
   const closeModal = (ev) => {
     ev.stopPropagation();
-    console.log("clicked");
     props.onClose();
   };
 

@@ -6,8 +6,9 @@ import NewNote from "./components/NewNote";
 import "./styles/App.css";
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
     this.state = {
       notes: [],
       showModal: false,
@@ -15,7 +16,21 @@ class App extends Component {
   }
 
   toggleModal(value) {
-    this.setState({ ...this.state, showModal: value });
+    this.setState((state) => ({ ...state, showModal: value }));
+  }
+
+  addNewNote(title, content) {
+    const newNote = {
+      id: +new Date(),
+      title: title,
+      content: content,
+      archived: false,
+      createdAt: new Date().toISOString(),
+    };
+    const newNotes = [...this.state.notes];
+    newNotes.push(newNote);
+
+    this.setState((state) => ({ ...state, notes: newNotes, showModal: false }));
   }
 
   render() {
@@ -23,7 +38,7 @@ class App extends Component {
       <>
         {this.state.showModal && (
           <Modal onClose={() => this.toggleModal(false)}>
-            <NewNote />
+            <NewNote onAddNewNote={this.addNewNote.bind(this)} />
           </Modal>
         )}
         <Navbar />
