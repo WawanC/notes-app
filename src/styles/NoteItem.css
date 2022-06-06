@@ -74,6 +74,10 @@
   opacity: 1;
 }
 
+.noteItem .content {
+  white-space: pre-wrap;
+}
+
 @keyframes noteItemShowUp {
   from {
     transform: translateY(100%);
