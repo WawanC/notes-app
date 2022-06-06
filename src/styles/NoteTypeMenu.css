@@ -1,0 +1,19 @@
+.noteTypeMenu {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.noteTypeMenu .noteType {
+  background-color: transparent;
+  padding: 0.5rem 2rem;
+  border-radius: 2rem;
+}
+
+.noteTypeMenu .noteType:hover {
+  background-color: #ccc;
+}
+
+.noteTypeMenu .noteType.selected {
+  background-color: #ccc;
+}
