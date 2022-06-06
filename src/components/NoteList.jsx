@@ -8,9 +8,11 @@ const NoteList = (props) => {
         props.notes.map((note) => (
           <NoteItem
             key={note.id}
+            id={note.id}
             title={note.title}
             createdAt={note.createdAt}
             content={note.content}
+            onDelete={props.onDelete}
           />
         ))
       ) : (

@@ -11,15 +11,15 @@ class NewNote extends Component {
     };
   }
 
-  titleChangeHandler(ev) {
+  titleChangeHandler = (ev) => {
     this.setState((state) => ({ ...state, enteredTitle: ev.target.value }));
-  }
+  };
 
-  contentChangeHandler(ev) {
+  contentChangeHandler = (ev) => {
     this.setState((state) => ({ ...state, enteredContent: ev.target.value }));
-  }
+  };
 
-  submitFormHandler(ev) {
+  submitFormHandler = (ev) => {
     ev.preventDefault();
     ev.stopPropagation();
 
@@ -29,7 +29,7 @@ class NewNote extends Component {
     this.props.onAddNewNote(title, content);
 
     this.setState((state) => ({ enteredTitle: "", enteredContent: "" }));
-  }
+  };
 
   render() {
     return (

@@ -1,6 +1,8 @@
 import "../styles/NoteItem.css";
 
 const NoteItem = (props) => {
+  const deleteNote = () => props.onDelete(props.id);
+
   return (
     <div className="noteItem">
       <div className="main">
@@ -10,7 +12,7 @@ const NoteItem = (props) => {
         </div>
         <div className="actions">
           <button>Archive</button>
-          <button>Delete</button>
+          <button onClick={deleteNote}>Delete</button>
         </div>
       </div>
       <p className="content">{props.content}</p>
