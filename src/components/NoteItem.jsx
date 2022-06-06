@@ -1,4 +1,5 @@
 import "../styles/NoteItem.css";
+import { showFormattedDate } from "../utils";
 
 const iconSize = 20;
 
@@ -61,7 +62,9 @@ const NoteItem = (props) => {
       <div className="main">
         <div>
           <h1>{props.title}</h1>
-          <span className="createdAt">{props.createdAt}</span>
+          <span className="createdAt">
+            {showFormattedDate(props.createdAt)}
+          </span>
         </div>
         <div className="actions">
           <button onClick={props.onToggleArchived} className="toggleBtn">
