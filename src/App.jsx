@@ -7,6 +7,7 @@ import NoteList from "./components/NoteList";
 import NoteTypeMenu from "./components/NoteTypeMenu";
 import Search from "./components/Search";
 import "./styles/App.css";
+import { getInitialData } from "./utils";
 
 class App extends Component {
   constructor(props) {
@@ -22,6 +23,11 @@ class App extends Component {
     this.modalRef = createRef();
   }
 
+  componentDidMount() {
+    const initialNotes = getInitialData();
+    this.setState((state) => ({ ...state, notes: initialNotes }));
+  }
+
   toggleModal = (value) => {
     if (!value) {
       this.modalRef.current.style.animation = "modalPopdown 0.25s";
@@ -34,11 +40,11 @@ class App extends Component {
     }
   };
 
-  addNewNote = (title, content) => {
+  addNewNote = (title, body) => {
     const newNote = {
       id: +new Date(),
       title: title,
-      content: content,
+      body: body,
       archived: false,
       createdAt: new Date().toISOString(),
     };

@@ -10,7 +10,7 @@ const NoteList = (props) => {
             key={note.id}
             title={note.title}
             createdAt={note.createdAt}
-            content={note.content}
+            content={note.body}
             archived={note.archived}
             onToggleArchived={() =>
               props.onToggleArchived(note.id, !note.archived)

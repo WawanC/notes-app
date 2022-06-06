@@ -7,7 +7,7 @@ class NewNote extends Component {
 
     this.state = {
       enteredTitle: "",
-      enteredContent: "",
+      enteredBody: "",
       titleError: null,
     };
 
@@ -24,10 +24,10 @@ class NewNote extends Component {
     }));
   };
 
-  contentChangeHandler = (ev) => {
+  bodyChangeHandler = (ev) => {
     this.setState((state) => ({
       ...state,
-      enteredContent: ev.target.value,
+      enteredBody: ev.target.value,
     }));
   };
 
@@ -38,14 +38,14 @@ class NewNote extends Component {
     if (this.state.titleError) return;
 
     const title = this.state.enteredTitle.trim();
-    const content = this.state.enteredContent.trim();
+    const body = this.state.enteredBody.trim();
 
-    this.props.onAddNewNote(title, content);
+    this.props.onAddNewNote(title, body);
 
     this.setState((state) => ({
       ...state,
       enteredTitle: "",
-      enteredContent: "",
+      enteredBody: "",
     }));
   };
 
@@ -72,12 +72,12 @@ class NewNote extends Component {
           />
         </div>
         <div className="inputContainer">
-          <label htmlFor="content">Content :</label>
+          <label htmlFor="body">Content :</label>
           <textarea
-            id="content"
+            id="body"
             rows={4}
-            value={this.state.enteredContent}
-            onChange={(ev) => this.contentChangeHandler(ev)}
+            value={this.state.enteredBody}
+            onChange={(ev) => this.bodyChangeHandler(ev)}
             required
           />
         </div>

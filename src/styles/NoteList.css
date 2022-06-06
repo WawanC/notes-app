@@ -13,7 +13,7 @@
 
 @keyframes noteListShowUp {
   from {
-    transform: translateY(100%);
+    transform: translateY(20%);
     opacity: 0;
   }
   to {
