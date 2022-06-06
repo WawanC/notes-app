@@ -6,7 +6,7 @@ const Search = (props) => {
   return (
     <div className="searchContainer">
       <input
-        type="text"
+        type="search"
         value={props.value}
         placeholder="Enter Note Title Here..."
         onChange={onChangeKeyword}
