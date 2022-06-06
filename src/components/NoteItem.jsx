@@ -6,7 +6,7 @@ const NoteItem = (props) => {
   return (
     <div className="noteItem">
       <div className="main">
-        <div>
+        <div className="info">
           <h1>{props.title}</h1>
           <span className="createdAt">
             {showFormattedDate(props.createdAt)}

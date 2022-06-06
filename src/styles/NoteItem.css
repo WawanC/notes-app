@@ -17,6 +17,11 @@
   justify-content: space-between;
 }
 
+.noteItem .main .info {
+  word-break: break-all;
+  width: 75%;
+}
+
 .noteItem .main .createdAt {
   font-style: italic;
 }
