@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component, createRef } from "react";
 import Footer from "./components/Footer";
 import Modal from "./components/Modal";
 import Navbar from "./components/Navbar";
@@ -18,10 +18,20 @@ class App extends Component {
       searchKeyword: "",
       selectedNoteType: "active",
     };
+
+    this.modalRef = createRef();
   }
 
   toggleModal = (value) => {
-    this.setState((state) => ({ ...state, showModal: value }));
+    if (!value) {
+      this.modalRef.current.style.animation = "modalPopdown 0.25s";
+      setTimeout(
+        () => this.setState((state) => ({ ...state, showModal: value })),
+        200
+      );
+    } else {
+      this.setState((state) => ({ ...state, showModal: value }));
+    }
   };
 
   addNewNote = (title, content) => {
@@ -38,8 +48,8 @@ class App extends Component {
     this.setState((state) => ({
       ...state,
       notes: updatedNotes,
-      showModal: false,
     }));
+    this.toggleModal(false);
   };
 
   deleteNote = (id) => {
@@ -78,7 +88,7 @@ class App extends Component {
     return (
       <>
         {this.state.showModal && (
-          <Modal onClose={() => this.toggleModal(false)}>
+          <Modal onClose={() => this.toggleModal(false)} ref={this.modalRef}>
             <NewNote onAddNewNote={this.addNewNote} />
           </Modal>
         )}

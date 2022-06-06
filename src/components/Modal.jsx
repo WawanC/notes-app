@@ -1,7 +1,7 @@
+import { forwardRef } from "react";
 import "../styles/Modal.css";
-import NewNote from "./NewNote";
 
-const Modal = (props) => {
+const Modal = forwardRef((props, ref) => {
   const closeModal = (ev) => {
     ev.stopPropagation();
     props.onClose();
@@ -10,9 +10,11 @@ const Modal = (props) => {
   return (
     <section className="modal">
       <div className="backdrop" onClick={closeModal} />
-      <div className="content">{props.children}</div>
+      <div ref={ref} className="content">
+        {props.children}
+      </div>
     </section>
   );
-};
+});
 
 export default Modal;
