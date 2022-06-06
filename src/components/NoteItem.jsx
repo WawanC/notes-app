@@ -1,8 +1,6 @@
 import "../styles/NoteItem.css";
 
 const NoteItem = (props) => {
-  const deleteNote = () => props.onDelete(props.id);
-
   return (
     <div className="noteItem">
       <div className="main">
@@ -11,8 +9,10 @@ const NoteItem = (props) => {
           <span className="createdAt">{props.createdAt}</span>
         </div>
         <div className="actions">
-          <button>Archive</button>
-          <button onClick={deleteNote}>Delete</button>
+          <button onClick={props.onToggleArchived}>
+            {props.archived ? "Move" : "Archive"}
+          </button>
+          <button onClick={props.onDelete}>Delete</button>
         </div>
       </div>
       <p className="content">{props.content}</p>

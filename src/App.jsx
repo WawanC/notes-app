@@ -47,6 +47,15 @@ class App extends Component {
     this.setState((state) => ({ ...state, notes: updatedNotes }));
   };
 
+  toggleArchived = (id, value) => {
+    const updatedNotes = [...this.state.notes];
+    const noteIdx = updatedNotes.findIndex((note) => note.id === id);
+    if (noteIdx < 0) return;
+    updatedNotes[noteIdx].archived = value;
+
+    this.setState((state) => ({ ...state, notes: updatedNotes }));
+  };
+
   changeSearchKeyword = (value) =>
     this.setState((state) => ({ ...state, searchKeyword: value }));
 
@@ -62,6 +71,9 @@ class App extends Component {
           .includes(this.state.searchKeyword.toLowerCase())
       );
     }
+    displayedNotes = displayedNotes.filter((note) =>
+      this.state.selectedNoteType === "active" ? !note.archived : note.archived
+    );
 
     return (
       <>
@@ -81,7 +93,11 @@ class App extends Component {
             value={this.state.selectedNoteType}
             onChange={this.changeSelectedNoteType}
           />
-          <NoteList notes={displayedNotes} onDelete={this.deleteNote} />
+          <NoteList
+            notes={displayedNotes}
+            onToggleArchived={this.toggleArchived}
+            onDelete={this.deleteNote}
+          />
         </main>
         <Footer />
       </>
