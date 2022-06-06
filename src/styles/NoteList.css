@@ -21,3 +21,21 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 1200px) {
+  .noteList {
+    width: 75%;
+  }
+}
+
+@media (max-width: 800px) {
+  .noteList {
+    width: 90%;
+  }
+}
+
+@media (max-width: 500px) {
+  .noteList {
+    width: 100%;
+  }
+}

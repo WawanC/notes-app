@@ -32,6 +32,15 @@
   }
 }
 
+@keyframes modalPopupMobile {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 @keyframes modalPopdown {
   from {
     transform: scale(1);
@@ -39,4 +48,13 @@
   to {
     transform: scale(0.01);
   }
-} ;
+}
+
+@media (max-width: 768px) {
+  .modal .content {
+    animation: modalPopupMobile 0.25s;
+    width: 100%;
+    border-radius: 0;
+    bottom: 0;
+  }
+}

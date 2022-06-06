@@ -12,7 +12,7 @@ const NoteItem = (props) => {
             {showFormattedDate(props.createdAt)}
           </span>
         </div>
-        <div className="actions">
+        <div className="actions topActions">
           <button onClick={props.onToggleArchived} className="toggleBtn">
             {props.archived ? <MoveIcon /> : <ArchiveIcon />}
           </button>
@@ -22,6 +22,14 @@ const NoteItem = (props) => {
         </div>
       </div>
       <p className="content">{props.content}</p>
+      <div className="actions bottomActions">
+        <button onClick={props.onToggleArchived} className="toggleBtn">
+          {props.archived ? <MoveIcon /> : <ArchiveIcon />}
+        </button>
+        <button onClick={props.onDelete} className="deleteBtn">
+          <DeleteIcon />
+        </button>
+      </div>
     </div>
   );
 };

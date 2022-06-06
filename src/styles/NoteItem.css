@@ -21,13 +21,13 @@
   font-style: italic;
 }
 
-.noteItem .main .actions {
+.noteItem .actions {
   display: flex;
   gap: 1rem;
   align-items: center;
 }
 
-.noteItem .main .actions button {
+.noteItem .actions button {
   font-size: 1rem;
   padding: 0.75rem;
   border-radius: 50%;
@@ -38,19 +38,19 @@
   position: relative;
 }
 
-.noteItem .main .actions button:hover {
+.noteItem .actions button:hover {
   transform: scale(1.25);
 }
 
-.noteItem .main .actions .toggleBtn {
+.noteItem .actions .toggleBtn {
   background-color: yellow;
 }
 
-.noteItem .main .actions .deleteBtn {
+.noteItem .actions .deleteBtn {
   background-color: red;
 }
 
-.noteItem .main .actions button .tooltip {
+.noteItem .actions button .tooltip {
   font-weight: normal;
   font-size: 1rem;
 
@@ -69,13 +69,17 @@
   transition: opacity 0.3s;
 }
 
-.noteItem .main .actions button:hover .tooltip {
+.noteItem .actions button:hover .tooltip {
   visibility: visible;
   opacity: 1;
 }
 
 .noteItem .content {
   white-space: pre-wrap;
+}
+
+.noteItem .actions.bottomActions {
+  display: none;
 }
 
 @keyframes noteItemShowUp {
@@ -88,5 +92,25 @@
     transform: translateY(0);
     opacity: 1;
     position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .noteItem .main {
+    justify-content: center;
+    text-align: center;
+  }
+  .noteItem .actions.topActions {
+    display: none;
+  }
+
+  .noteItem .actions.bottomActions {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+  }
+
+  .noteItem .actions.bottomActions button {
+    transform: scale(1.25);
   }
 }
