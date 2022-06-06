@@ -1,0 +1,8 @@
+.searchContainer {
+  display: flex;
+}
+
+.searchContainer input {
+  font-size: 1.5em;
+  padding: 0.5em;
+}

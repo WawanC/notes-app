@@ -4,6 +4,7 @@ import Modal from "./components/Modal";
 import Navbar from "./components/Navbar";
 import NewNote from "./components/NewNote";
 import NoteList from "./components/NoteList";
+import Search from "./components/Search";
 import "./styles/App.css";
 
 class App extends Component {
@@ -13,6 +14,7 @@ class App extends Component {
     this.state = {
       notes: [],
       showModal: false,
+      searchKeyword: "",
     };
   }
 
@@ -43,7 +45,19 @@ class App extends Component {
     this.setState((state) => ({ ...state, notes: updatedNotes }));
   };
 
+  changeSearchKeyword = (value) =>
+    this.setState((state) => ({ ...state, searchKeyword: value }));
+
   render() {
+    let displayedNotes = this.state.notes;
+    if (this.state.searchKeyword.length > 0) {
+      displayedNotes = this.state.notes.filter((note) =>
+        note.title
+          .toLowerCase()
+          .includes(this.state.searchKeyword.toLowerCase())
+      );
+    }
+
     return (
       <>
         {this.state.showModal && (
@@ -53,8 +67,12 @@ class App extends Component {
         )}
         <Navbar />
         <main>
+          <Search
+            value={this.state.searchKeyword}
+            onChange={this.changeSearchKeyword}
+          />
           <button onClick={() => this.toggleModal(true)}>Add New Note</button>
-          <NoteList notes={this.state.notes} onDelete={this.deleteNote} />
+          <NoteList notes={displayedNotes} onDelete={this.deleteNote} />
         </main>
         <Footer />
       </>
