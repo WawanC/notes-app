@@ -3,6 +3,9 @@
 }
 
 .searchContainer input {
-  font-size: 1.5em;
-  padding: 0.5em;
+  font-size: 1.5rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--secondary);
+  border: none;
+  outline: none;
 }

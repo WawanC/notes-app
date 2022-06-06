@@ -19,7 +19,7 @@ const NoteList = (props) => {
           />
         ))
       ) : (
-        <span>No notes yet</span>
+        <span>No notes found.</span>
       )}
     </section>
   );

@@ -8,7 +8,7 @@ const Search = (props) => {
       <input
         type="text"
         value={props.value}
-        placeholder="Title Here..."
+        placeholder="Enter Note Title Here..."
         onChange={onChangeKeyword}
       />
     </div>

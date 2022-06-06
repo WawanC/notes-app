@@ -5,15 +5,18 @@
 }
 
 .noteTypeMenu .noteType {
-  background-color: transparent;
+  background-color: var(--accent);
+  opacity: 0.5;
   padding: 0.5rem 2rem;
   border-radius: 2rem;
+  font-weight: 400;
 }
 
 .noteTypeMenu .noteType:hover {
-  background-color: #ccc;
+  opacity: 1;
 }
 
 .noteTypeMenu .noteType.selected {
-  background-color: #ccc;
+  opacity: 1;
+  font-weight: bold;
 }

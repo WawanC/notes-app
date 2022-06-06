@@ -54,7 +54,7 @@ class NewNote extends Component {
 
     return (
       <form onSubmit={(ev) => this.submitFormHandler(ev)}>
-        <h1>New Note</h1>
+        <h1>Create New Note</h1>
         <div className="inputContainer">
           <div className="titleContainer">
             <label htmlFor="title">Title :</label>
