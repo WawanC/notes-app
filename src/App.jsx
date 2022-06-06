@@ -79,7 +79,9 @@ class App extends Component {
     this.setState((state) => ({ ...state, selectedNoteType: value }));
 
   render() {
-    let displayedNotes = this.state.notes;
+    let displayedNotes = this.state.notes.sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    );
     if (this.state.searchKeyword.length > 0) {
       displayedNotes = this.state.notes.filter((note) =>
         note.title
