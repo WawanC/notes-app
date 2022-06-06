@@ -21,6 +21,7 @@ form .inputContainer input,
 form .inputContainer textarea {
   font-size: 1.5rem;
   border-width: 1px;
+  resize: none;
 }
 
 form .inputContainer .titleContainer {

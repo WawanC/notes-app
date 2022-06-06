@@ -7,6 +7,9 @@
   width: 100%;
   border-radius: 1rem;
   animation: noteItemShowUp 0.5s;
+
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2);
+  /* border: none; */
 }
 
 .noteItem .main {
@@ -26,8 +29,49 @@
 
 .noteItem .main .actions button {
   font-size: 1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem;
+  border-radius: 50%;
   background-color: var(--accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.noteItem .main .actions button:hover {
+  transform: scale(1.25);
+}
+
+.noteItem .main .actions .toggleBtn {
+  background-color: yellow;
+}
+
+.noteItem .main .actions .deleteBtn {
+  background-color: red;
+}
+
+.noteItem .main .actions button .tooltip {
+  font-weight: normal;
+  font-size: 1rem;
+
+  visibility: hidden;
+  white-space: nowrap;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+
+  position: absolute;
+  top: 110%;
+
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.noteItem .main .actions button:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
 }
 
 @keyframes noteItemShowUp {

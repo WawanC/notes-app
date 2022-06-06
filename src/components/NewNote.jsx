@@ -27,7 +27,7 @@ class NewNote extends Component {
   contentChangeHandler = (ev) => {
     this.setState((state) => ({
       ...state,
-      enteredContent: ev.target.value.trim(),
+      enteredContent: ev.target.value,
     }));
   };
 
