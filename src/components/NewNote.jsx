@@ -8,35 +8,61 @@ class NewNote extends Component {
     this.state = {
       enteredTitle: "",
       enteredContent: "",
+      titleError: null,
     };
+
+    this.titleMaxLength = 50;
   }
 
   titleChangeHandler = (ev) => {
-    this.setState((state) => ({ ...state, enteredTitle: ev.target.value }));
+    const enteredValue = ev.target.value.trim();
+    if (enteredValue.length > this.titleMaxLength) return;
+
+    this.setState((state) => ({
+      ...state,
+      enteredTitle: enteredValue,
+    }));
   };
 
   contentChangeHandler = (ev) => {
-    this.setState((state) => ({ ...state, enteredContent: ev.target.value }));
+    this.setState((state) => ({
+      ...state,
+      enteredContent: ev.target.value.trim(),
+    }));
   };
 
   submitFormHandler = (ev) => {
     ev.preventDefault();
     ev.stopPropagation();
 
+    if (this.state.titleError) return;
+
     const title = this.state.enteredTitle.trim();
     const content = this.state.enteredContent.trim();
 
     this.props.onAddNewNote(title, content);
 
-    this.setState((state) => ({ enteredTitle: "", enteredContent: "" }));
+    this.setState((state) => ({
+      ...state,
+      enteredTitle: "",
+      enteredContent: "",
+    }));
   };
 
   render() {
+    const titleLength = this.state.enteredTitle.trim().length;
+
     return (
       <form onSubmit={(ev) => this.submitFormHandler(ev)}>
         <h1>New Note</h1>
         <div className="inputContainer">
-          <label htmlFor="title">Title :</label>
+          <div className="titleContainer">
+            <label htmlFor="title">Title :</label>
+            <span className="titleLength">
+              {titleLength}/{this.titleMaxLength}
+            </span>
+          </div>
+
           <input
             type="text"
             id="title"
