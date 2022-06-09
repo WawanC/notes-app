@@ -15,7 +15,7 @@ class NewNote extends Component {
   }
 
   titleChangeHandler = (ev) => {
-    const enteredValue = ev.target.value.trim();
+    const enteredValue = ev.target.value;
     if (enteredValue.length > this.titleMaxLength) return;
 
     this.setState((state) => ({
